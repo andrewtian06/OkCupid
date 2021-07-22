@@ -4,7 +4,9 @@ import { AntDesign, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 import Footer from '../components/Footer/index';
 
 const CardDetailsScreen = props => {
+
     const { handleChoice } = props.route.params;
+
     return (
         <View style={styles.container}>
 

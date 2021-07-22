@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Progress from 'react-native-progress';
-import { EvilIcons, AntDesign, SimpleLineIcons } from '@expo/vector-icons';
+import { EvilIcons, AntDesign, SimpleLineIcons, Octicons } from '@expo/vector-icons';
 const ProfileScreen = () => {
     return (
 
@@ -40,7 +40,7 @@ const ProfileScreen = () => {
 
                             <TouchableWithoutFeedback>
                                 <View style={styles.preferencesButton}>
-                                    <AntDesign name="filter" size={24} color="white" style={styles.filter} />
+                                    <Octicons name="settings" size={24} color="white" style={styles.filter} />
                                     <Text style={styles.preferences}>Preferences</Text>
                                 </View>
                             </TouchableWithoutFeedback>
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         borderRadius: 30 / 2,
-        padding: 3.6,
+        padding: 4,
         marginRight: 5
     },
     settingsIcon: {

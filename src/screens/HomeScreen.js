@@ -6,8 +6,9 @@ import {
     FlatList,
     Animated,
     PanResponder,
+    TouchableOpacity,
+    Image
 } from 'react-native';
-import HeaderCard from '../components/HeaderCard/HeaderCard';
 import Card from '../components/Card/Card';
 import { ACTION_OFFSET, CARD } from '../../utils/constants';
 import { pets as petsArray } from '../../test/data';
@@ -35,6 +36,12 @@ const HomeScreen = props => {
     const [pets, setPets] = useState(petsArray);
     const swipe = useRef(new Animated.ValueXY()).current;
     const tiltSign = useRef(new Animated.Value(1)).current;
+    const [isClicked, setIsClicked] = useState(0);
+
+    const onClicked = (params) => {
+        setIsClicked(params);
+        console.log(isClicked);
+    };
 
     useEffect(() => {
         if (!pets.length) {
@@ -107,11 +114,24 @@ const HomeScreen = props => {
                     horizontal={true}
                     data={DATA}
                     keyExtractor={item => item.id}
-                    renderItem={({ item }) => (
-                        < HeaderCard
-                            sourceName={item.source}
-                            userName={item.name}
-                        />
+                    renderItem={({ item, index }) => (
+
+                        <TouchableOpacity onPress={() => onClicked(index)}>
+                            <View style={{ alignItems: 'flex-start' }}>
+                                <View style={styles.imageContainer}>
+                                    <Image style={{
+                                        width: 60,
+                                        height: 60,
+                                        borderRadius: 60 / 2,
+                                        overflow: "hidden",
+                                        borderWidth: 2,
+                                        borderColor: isClicked == index ? 'red' : 'white',
+                                    }} source={item.source} />
+                                    <Text style={styles.textStyle}>{item.name}</Text>
+                                </View>
+                            </View>
+                        </TouchableOpacity>
+
                     )}
                 />
             </View>
@@ -174,6 +194,16 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         marginBottom: 300
+    },
+    imageContainer: {
+        marginTop: 75,
+        marginLeft: 20,
+        alignItems: 'center'
+    },
+    textStyle: {
+        color: 'white',
+        fontSize: 12,
+        marginTop: 3
     }
 });
 
