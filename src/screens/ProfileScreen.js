@@ -12,7 +12,8 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Progress from 'react-native-progress';
 import { EvilIcons, AntDesign, SimpleLineIcons, Octicons } from '@expo/vector-icons';
-const ProfileScreen = () => {
+
+const ProfileScreen = ({navigation}) => {
     return (
 
         <ScrollView>
@@ -45,7 +46,7 @@ const ProfileScreen = () => {
                                 </View>
                             </TouchableWithoutFeedback>
 
-                            <TouchableWithoutFeedback>
+                            <TouchableWithoutFeedback onPress={() => navigation.navigate('Settings')}>
                                 <View style={styles.settingsButton}>
                                     <SimpleLineIcons name="settings" size={20} color="white" style={styles.settingsIcon} />
                                     <Text style={styles.preferences}>Settings</Text>
@@ -130,8 +131,6 @@ const ProfileScreen = () => {
 
                 </View>
 
-
-
             </View >
         </ScrollView>
 
@@ -149,7 +148,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     profile: {
-        top: 90,
+        // top: 90,
+        marginTop: 30,
         flexDirection: 'row',
         marginLeft: 40
     },
@@ -185,7 +185,8 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     buttonContainer: {
-        top: 110,
+        marginTop: 45,
+        // top: 110,
     },
     settingsButton: {
         flexDirection: 'row',

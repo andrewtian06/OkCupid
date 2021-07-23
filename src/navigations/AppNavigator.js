@@ -1,82 +1,49 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import MessageScreen from '../screens/MessageScreen';
-import HomeScreen from '../screens/HomeScreen';
-import LikeScreen from '../screens/LikeScreen';
-import ProfileScreen from '../screens/ProfileScreen';
 import CardDetailsScreen from '../screens/CardDetailsScreen';
-import { AntDesign, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import BottomNavigator from './BottomNavigator';
+import SettingScreen from '../screens/SettingScreen';
 
-const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 function stackNavigator() {
     return (
-        <Stack.Navigator
-            screenOptions={{
-                headerShown: false,
-
-            }}
-        >
-            <Stack.Screen
-                name="Home"
-                component={HomeScreen}
-            />
-            <Stack.Screen
-                name="CardDetails"
-                component={CardDetailsScreen}
-            />
-        </Stack.Navigator>
-    );
-}
-
-function AppNavigator() {
-    return (
         <NavigationContainer>
-            <Tab.Navigator
-                tabBarOptions={
-                    {
-                        activeTintColor: 'white',
-                        tabStyle: { backgroundColor: 'black', }
-                    }
-                }
-
-                screenOptions={({ route }) => ({
-                    tabBarIcon: () => {
-                        if (route.name == "Home") {
-                            return <AntDesign name="team" size={24} color="white" />
-                        } else if (route.name == "Likes") {
-                            return <Ionicons name="heart-outline" size={24} color="white" />
-                        } else if (route.name == "Messages") {
-                            return <MaterialCommunityIcons name="message-processing-outline" size={24} color="white" />
-                        } else if (route.name == "Profile") {
-                            return <Ionicons name="person-circle" size={24} color="white" />
-                        }
-                    }
-                })}
+            <Stack.Navigator
+                // screenOptions={{
+                //     headerShown: false,
+                // }}
             >
-                <Tab.Screen
-                    name="Home"
-                    component={stackNavigator}
+                <Stack.Screen
+                    name="BottomNav"
+                    component={BottomNavigator}
+                    options={{
+                        headerShown: false,
+                    }}
                 />
-                <Tab.Screen
-                    name="Likes"
-                    component={LikeScreen}
-                    options={{ tabBarBadge: 13 }}
+                <Stack.Screen
+                    name="CardDetails"
+                    component={CardDetailsScreen}
+                    options={{
+                        headerShown: false,
+                    }}
                 />
-                <Tab.Screen
-                    name="Messages"
-                    component={MessageScreen}
+                <Stack.Screen
+                    name="Settings"
+                    component={SettingScreen}
+                    options= {{
+                        title: 'Settings',
+                        headerShown: true,
+                        headerStyle: {
+                            backgroundColor: '#000',
+                        },
+                        headerTintColor: '#fff',
+                    }}
                 />
-                <Tab.Screen
-                    name="Profile"
-                    component={ProfileScreen}
-                />
-            </Tab.Navigator>
-        </NavigationContainer >
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 }
 
-export default AppNavigator;
+export default stackNavigator;
