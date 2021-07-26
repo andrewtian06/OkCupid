@@ -35,7 +35,6 @@ const LikeNavigator = () => {
             <Tab.Screen name="Likes You" component={LikeScreen} />
             <Tab.Screen name="Intro" component={LikeScreen} />
             <Tab.Screen name="You Like" component={LikeScreen} />
-
         </Tab.Navigator>
     );
 }

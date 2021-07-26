@@ -35,7 +35,7 @@ function BottomNavigator() {
                     } else if (route.name == "Profile") {
                         return <Ionicons name="person-circle" size={24} color="white" />
                     }
-                },
+                }
             })}
         >
             <Tab.Screen
@@ -66,7 +66,7 @@ const LikeScreen = ({ navigation }) => (
         screenOptions={{
             headerStyle: {
                 backgroundColor: '#fff',
-                elevation: 0
+                elevation: 0,
             },
             headerTintColor: '#000',
         }}

@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Progress from 'react-native-progress';
-import { EvilIcons, SimpleLineIcons, Octicons } from '@expo/vector-icons';
+import { EvilIcons, AntDesign, SimpleLineIcons, Octicons } from '@expo/vector-icons';
 
 const ProfileScreen = ({ navigation }) => {
     return (
@@ -156,6 +156,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     profile: {
+        // top: 90,
+        marginTop: 30,
         flexDirection: 'row',
         marginLeft: 40,
         marginTop: 30,
@@ -193,7 +195,8 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     buttonContainer: {
-        marginTop: 45
+        marginTop: 45,
+        // top: 110,
     },
     settingsButton: {
         flexDirection: 'row',
