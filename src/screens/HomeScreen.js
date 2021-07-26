@@ -7,7 +7,9 @@ import {
     Animated,
     PanResponder,
     TouchableOpacity,
-    Image
+    Image,
+    SafeAreaView,
+    StatusBar
 } from 'react-native';
 import Card from '../components/Card/Card';
 import { ACTION_OFFSET, CARD } from '../../utils/constants';
@@ -106,83 +108,84 @@ const HomeScreen = props => {
 
     return (
 
-        <View style={styles.container}>
+        <SafeAreaView>
 
-            {/* Header */}
-            <View style={styles.headerContainer}>
-                <FlatList
-                    horizontal={true}
-                    data={DATA}
-                    keyExtractor={item => item.id}
-                    renderItem={({ item, index }) => (
+            <View style={styles.container}>
 
-                        <TouchableOpacity onPress={() => onClicked(index)}>
-                            <View style={{ alignItems: 'flex-start' }}>
-                                <View style={styles.imageContainer}>
-                                    <Image style={{
-                                        width: 60,
-                                        height: 60,
-                                        borderRadius: 60 / 2,
-                                        overflow: "hidden",
-                                        borderWidth: 2,
-                                        borderColor: isClicked == index ? 'red' : 'white',
-                                    }} source={item.source} />
-                                    <Text style={styles.textStyle}>{item.name}</Text>
+                {/* Header */}
+                <View style={styles.headerContainer}>
+                    <FlatList
+                        horizontal={true}
+                        data={DATA}
+                        keyExtractor={item => item.id}
+                        renderItem={({ item, index }) => (
+
+                            <TouchableOpacity onPress={() => onClicked(index)}>
+                                <View style={{ alignItems: 'flex-start' }}>
+                                    <View style={styles.imageContainer}>
+                                        <Image style={{
+                                            width: 60,
+                                            height: 60,
+                                            borderRadius: 60 / 2,
+                                            overflow: "hidden",
+                                            borderWidth: 2,
+                                            borderColor: isClicked == index ? 'red' : 'white',
+                                        }} source={item.source} />
+                                        <Text style={styles.textStyle}>{item.name}</Text>
+                                    </View>
                                 </View>
-                            </View>
-                        </TouchableOpacity>
+                            </TouchableOpacity>
 
-                    )}
-                />
-            </View>
+                        )}
+                    />
+                </View>
 
-            <Text style={styles.textSyle}>Recommended Just For You</Text>
+                <Text style={styles.textSyle}>Recommended Just For You</Text>
 
-            {/* Card Container */}
-            <View style={styles.cardContainer}>
+                {/* Card Container */}
+                <View style={styles.cardContainer}>
 
-                <View style={styles.mainContainer}>
+                    <View style={styles.mainContainer}>
 
-                    {pets
-                        .map(({ name, source }, index) => {
-                            const isFirst = index === 0;
-                            const dragHandlers = isFirst ? panResponder.panHandlers : {};
+                        {pets
+                            .map(({ name, source }, index) => {
+                                const isFirst = index === 0;
+                                const dragHandlers = isFirst ? panResponder.panHandlers : {};
 
-                            return (
-                                <Card
-                                    navigation={props.navigation}
-                                    key={name}
-                                    name={name}
-                                    source={source}
-                                    isFirst={isFirst}
-                                    swipe={swipe}
-                                    tiltSign={tiltSign}
-                                    {...dragHandlers}
-                                    handleChoice={handleChoice}
-                                />
+                                return (
+                                    <Card
+                                        navigation={props.navigation}
+                                        key={name}
+                                        name={name}
+                                        source={source}
+                                        isFirst={isFirst}
+                                        swipe={swipe}
+                                        tiltSign={tiltSign}
+                                        {...dragHandlers}
+                                        handleChoice={handleChoice}
+                                    />
 
-                            );
-                        })
-                        .reverse()}
+                                );
+                            })
+                            .reverse()}
+
+                    </View>
 
                 </View>
 
             </View>
-
-        </View>
+        </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     headerContainer: {
-        flex: 0.3,
         backgroundColor: 'black',
+        marginTop: StatusBar.currentHeight
     },
     container: {
-        flex: 1,
     },
     cardContainer: {
-        flex: 1
     },
     textSyle: {
         fontWeight: 'bold',
@@ -196,8 +199,9 @@ const styles = StyleSheet.create({
         marginBottom: 300
     },
     imageContainer: {
-        marginTop: 75,
+        marginTop: 20,
         marginLeft: 20,
+        marginBottom: 10,
         alignItems: 'center'
     },
     textStyle: {

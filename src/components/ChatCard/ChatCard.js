@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 
 const ChatCard = ({ name, source }) => {
     return (
@@ -22,12 +22,13 @@ const styles = StyleSheet.create({
     },
     possibleMatchTextContainer: {
         justifyContent: 'center',
-        marginLeft: 10
+        marginLeft: 10,
+        marginRight: 30,
     },
     image: {
-        width: 70,
-        height: 70,
-        borderRadius: 70 / 2,
+        width: Dimensions.get('window').width > 350 ? 70 : 50,
+        height: Dimensions.get('window').height > 600 ? 70 : 50,
+        borderRadius: Dimensions.get('window').width > 350 && Dimensions.get('window').height > 600 ? 70 / 2 : 50 / 2,
         overflow: "hidden",
         borderWidth: 1,
         borderColor: "gray",

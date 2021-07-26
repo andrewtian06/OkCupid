@@ -16,8 +16,8 @@ const CardDetailsScreen = props => {
 
                 <View style={styles.personalInfo}>
 
-                    <View style={{ padding: 10, marginLeft: 10 }}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Agustin dwi</Text>
+                    <View style={styles.info}>
+                        <Text style={styles.nameText}>Agustin dwi</Text>
                         <Text style={{ marginTop: 5 }}>20{'\u30FB'}Jakarta</Text>
                     </View>
 
@@ -25,17 +25,17 @@ const CardDetailsScreen = props => {
                         style={styles.border}
                     />
 
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10 }}>
+                    <View style={styles.descriptionText}>
                         <AntDesign name="search1" size={15} color="black" style={{ padding: 10 }} />
                         <Text>Woman | Straight | Monogamous | Single</Text>
                     </View>
 
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10 }}>
+                    <View style={styles.descriptionText}>
                         <MaterialCommunityIcons name="human-male-height" size={24} color="black" style={{ padding: 10 }} />
                         <Text>5'4"</Text>
                     </View>
 
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10 }}>
+                    <View style={styles.descriptionText}>
                         <Ionicons name="eye-outline" size={24} color="black" style={{ padding: 10 }} />
                         <Text>Looking for men</Text>
                     </View>
@@ -87,6 +87,19 @@ const styles = StyleSheet.create({
     selfSummary: {
         backgroundColor: '#F0F0F0',
         height: 500
+    },
+    info: {
+        padding: 10,
+        marginLeft: 10
+    },
+    nameText: {
+        fontWeight: 'bold',
+        fontSize: 20
+    },
+    descriptionText: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginLeft: 10
     }
 });
 
