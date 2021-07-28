@@ -19,7 +19,8 @@ const LikeNavigator = () => {
                     borderWidth: 0,
                     shadowOpacity: 0,
                     backgroundColor: '#000',
-                    marginRight: 100,
+                    marginRight: 50,
+                    marginLeft: 50,
                 },
                 indicatorStyle: {
                     backgroundColor: 'purple',

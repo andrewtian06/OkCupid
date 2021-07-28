@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image} from 'react-native';
+import { Text, View, Image, TouchableOpacity} from 'react-native';
 import { styles } from './styles';
 
 const LikeCard = (props) => {
@@ -17,7 +17,6 @@ const LikeCard = (props) => {
             </View>
         </View>
       </View>
-      
     );
 }
 

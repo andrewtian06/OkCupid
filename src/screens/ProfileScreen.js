@@ -42,7 +42,7 @@ const ProfileScreen = ({ navigation }) => {
 
                         <View style={{ flexDirection: 'row' }}>
 
-                            <TouchableWithoutFeedback>
+                            <TouchableWithoutFeedback onPress={() => navigation.navigate('Preferences')}>
                                 <View style={styles.preferencesButton}>
                                     <Octicons name="settings" size={24} color="white" style={styles.filter} />
                                     <Text style={styles.preferences}>Preferences</Text>
