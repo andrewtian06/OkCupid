@@ -64,11 +64,7 @@ export default BottomNavigator;
 const LikeScreen = ({ navigation }) => (
     <Like.Navigator
         screenOptions={{
-            headerStyle: {
-                backgroundColor: '#fff',
-                elevation: 0,
-            },
-            headerTintColor: '#000',
+            headerShown: true,
         }}
     >
         <Like.Screen

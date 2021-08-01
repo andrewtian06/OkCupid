@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TouchableWithoutFeedback, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableWithoutFeedback, ScrollView, TouchableOpacity } from 'react-native';
 import { EvilIcons, AntDesign, FontAwesome, Fontisto } from '@expo/vector-icons';
 import EditCard from '../components/EditCard/EditCard';
+
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const EditScreen = props => {
 
@@ -11,8 +13,17 @@ const EditScreen = props => {
             <ScrollView>
 
                 <View>
-
-                    <Image source={require('../../assets/pet1.jpg')} style={styles.image} />
+                    <View style={{top: 50,}}>
+                        <Image source={require('../../assets/pet1.jpg')} style={styles.image}/>
+                        <TouchableOpacity style={styles.editStyle} onPress={()=> {props.navigation.navigate('EditPhoto')}}>
+                            <Icon
+                                name='camera'
+                                color='#fff'
+                                size={25}
+                            />
+                            <Text style={{color:'#fff', fontSize: 18,marginLeft: 5,}}>Edit Photos</Text>
+                        </TouchableOpacity>
+                    </View>
 
                     <View style={styles.info}>
 
@@ -113,14 +124,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#DCDCDC'
     },
     image: {
-        top: 50,
         height: 300,
-        width: Dimensions.get('window').width
+        width: Dimensions.get('window').width,
     },
     info: {
         top: 50,
         height: 70,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     childParent: {
         flexDirection: 'row',
@@ -131,8 +141,19 @@ const styles = StyleSheet.create({
     textStyle: {
         marginLeft: 10,
         fontSize: 15
+    },
+    editStyle: {
+        width: 150,
+        height: 50, 
+        position: 'absolute', 
+        right: 10, 
+        bottom: 10,
+        borderRadius: 30,
+        backgroundColor: '#000',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
-
 });
 
 export default EditScreen;

@@ -9,6 +9,7 @@ import SettingScreen from '../screens/SettingScreen';
 
 import EditScreen from '../screens/EditScreen';
 import QuestionScreen from '../screens/QuestionScreen';
+import EditPhotoScreen from '../screens/EditPhotoScreen';
 
 import PreferenceScreen from '../screens/PreferenceScreen';
 
@@ -72,6 +73,18 @@ function stackNavigator() {
                     component={EditScreen}
                     options={{
                         headerShown: false,
+                    }}
+                />
+                <Stack.Screen
+                    name="EditPhoto"
+                    component={EditPhotoScreen}
+                    options={{
+                        title: '',
+                        headerShown: true,
+                        headerStyle: {
+                            backgroundColor: '#000',
+                        },
+                        headerTintColor: '#fff',
                     }}
                 />
                 <Stack.Screen
