@@ -14,18 +14,46 @@ import ChatCard from '../components/ChatCard/ChatCard';
 const DATA = [
     {
         source: require('../../assets/pet1.jpg'),
+        name: '14 Possible Matches',
+        id: "3ac68afc-c605-48d3-a4f8-fbd91ab14dsf",
+        description: 'Match with them and chat now!',
+    },
+    {
+        source: require('../../assets/pet1.jpg'),
         name: 'vera',
         id: "58694a0f-3da1-471f-bd96-145571e29d72",
+        description: 'iya lmyn sih gw suka iseng2 masak',
+        margin: 30,
     },
     {
         source: require('../../assets/pet2.jpg'),
         name: 'selyn',
         id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+        description: 'iya lmyn sih gw suka iseng2 masak',
     },
     {
         source: require('../../assets/pet3.jpg'),
         name: 'abc',
         id: "3ac68afc-c605-48d3-a4f8-fbd91ab99f63",
+        description: 'iya lmyn sih gw suka iseng2 masak',
+    },
+    {
+        source: require('../../assets/pet3.jpg'),
+        name: 'abc',
+        id: "4",
+        description: 'iya lmyn sih gw suka iseng2 masak',
+    },
+    {
+        source: require('../../assets/pet3.jpg'),
+        name: 'abc',
+        id: "5",
+        description: 'iya lmyn sih gw suka iseng2 masak',
+    },
+    {
+        source: require('../../assets/pet3.jpg'),
+        name: 'asdfas',
+        id: "6",
+        description: 'iya lmyn sih gw suka iseng2 masak',
     },
 ];
 
@@ -38,33 +66,23 @@ const MessageScreen = () => {
                 <Text style={styles.headerTitle}>Messages</Text>
             </View>
 
-
-            <View style={styles.possibleMatchContainer}>
-                <Image style={styles.image} source={require('../../assets/pet1.jpg')} />
-                <View style={styles.possibleMatchTextContainer}>
-                    <Text style={styles.countPossible}>14 Possibile Matches</Text>
-                    <Text style={styles.description}>Match with them and chat now!</Text>
-                </View>
-            </View>
-
             <View style={styles.chat}>
                 <FlatList
                     data={DATA}
                     keyExtractor={item => item.id}
                     renderItem={({ item }) => (
-                        <ChatCard name={item.name} source={item.source} />
+                        <ChatCard name={item.name} source={item.source} description={item.description} margin={item.margin} />
                     )}
                 />
             </View>
-
-
-        </View >
+        </View>
 
     )
 };
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: 'black',
         height: Dimensions.get('window').height,
         marginTop: StatusBar.currentHeight,
@@ -109,6 +127,7 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     chat: {
+        flex: 1,
         marginTop: 30
     }
 });

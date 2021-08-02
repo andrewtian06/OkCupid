@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 
-const ChatCard = ({ name, source }) => {
+const ChatCard = ({ name, source, description, margin }) => {
     return (
-        <View style={styles.possibleMatchContainer}>
+        <View style={[styles.possibleMatchContainer, {marginTop: margin}]}>
             <Image style={styles.image} source={source} />
             <View style={styles.possibleMatchTextContainer}>
                 <Text style={styles.countPossible}>{name}</Text>
-                <Text style={styles.description}>iya lmyn sih gw suka iseng2 masak</Text>
+                <Text style={styles.description}>{description}</Text>
             </View>
         </View>
     );

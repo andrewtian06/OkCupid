@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { TouchableOpacity, View, Text, TouchableOpacityBase } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -34,6 +34,12 @@ import DietScreen from '../screens/inside_preference/DietScreen';
 import PetScreen from '../screens/inside_preference/PetScreen';
 import HasKidScreen from '../screens/inside_preference/HasKidScreen';
 import WantKidScreen from '../screens/inside_preference/WantKidScreen';
+
+//inside Setting Screen
+import EmailScreen from '../screens/inside_settings/EmailScreen';
+import PasswordScreen from '../screens/inside_settings/PasswordScreen';
+import PhoneNumberScreen from '../screens/inside_settings/PhoneNumberScreen';
+import EditPhoneScreen from '../screens/inside_settings/EditPhoneScreen';
 
 const Stack = createStackNavigator();
 
@@ -101,6 +107,67 @@ function stackNavigator() {
                             headerTitleAlign: 'center'
                         })
                     }
+                />
+                <Stack.Screen
+                    name="Email"
+                    component={EmailScreen}
+                    options= {{
+                        title: 'Change email',
+                        headerShown: true,
+                        headerStyle: {
+                            backgroundColor: '#000',
+                        },
+                        headerTintColor: '#fff',
+                        headerRight: () => (
+                            <View>
+                                <TouchableOpacity>
+                                    <Text style={{color: '#fff', marginRight: 15, fontSize: 16,}}>Save</Text>
+                                </TouchableOpacity>
+                            </View>
+                        ),
+                    }}
+                />
+                <Stack.Screen
+                    name="Password"
+                    component={PasswordScreen}
+                    options= {{
+                        title: 'Change password',
+                        headerShown: true,
+                        headerStyle: {
+                            backgroundColor: '#000',
+                        },
+                        headerTintColor: '#fff',
+                        headerRight: () => (
+                            <View>
+                                <TouchableOpacity>
+                                    <Text style={{color: '#fff', marginRight: 15, fontSize: 16,}}>Save</Text>
+                                </TouchableOpacity>
+                            </View>
+                        ),
+                    }}
+                />
+                <Stack.Screen
+                    name="PhoneNumber"
+                    component={PhoneNumberScreen}
+                    options= {{
+                        title: '',
+                        headerShown: true,
+                        headerStyle: {
+                            backgroundColor: '#000',
+                        },
+                        headerTintColor: '#fff',
+                    }}
+                />
+                <Stack.Screen
+                    name="EditPhone"
+                    component={EditPhoneScreen}
+                    options= {{
+                        title: '',
+                        headerShown: true,
+                        headerStyle: {
+                            backgroundColor: '#f5f5f5',
+                        },
+                    }}
                 />
                 <Stack.Screen
                     name="Preferences"
